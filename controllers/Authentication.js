@@ -14,7 +14,7 @@ module.exports.post_signin=(req,res)=>{
 
 // Getting Register Page
 module.exports.get_signup=(req,res)=>{
-    return res.send("Signup Page !!!!");
+    return res.render('Signup');
 }
 
 // Registering the user

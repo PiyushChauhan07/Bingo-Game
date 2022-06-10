@@ -1,15 +1,27 @@
 body{
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    background: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: consolas;
-    display: grid;
-    place-items: center;
     background: #000;
+    overflow-x: hidden;
+    max-height: 100vh;
+}
+
+/* scrollbar design */
+::-webkit-scrollbar {
+  width: 0.1em;
+}
+ 
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+::-webkit-scrollbar-thumb {
+  background-color: #000;
+  outline: 1px solid rgb(3, 3, 3);
+}
+
+.signup-btn{
+  position: absolute;
+  bottom: 37rem;
+  left: 75rem;
 }
 
 .profile-section{
@@ -26,6 +38,7 @@ body{
   h2 {
     font-weight: 600; font-style: italic; font-family: "Fira Sans Condensed", sans-serif;
   }
+
   header {
     height: 2em;
     background-color: #111122;
@@ -139,15 +152,32 @@ body{
     border-radius: 25px;
   }
 
- /* Play Button */ 
+  /* Friends List */
+  
+
+  .friends-container{
+    /* background-color: #000; */
+    color: #fff;
+    text-align: center;
+    float: right;
+    clear: left;
+    overflow-y: scroll;
+    position: absolute;
+    bottom: 30%;
+    right: 5%;
+    height: 300px;
+    padding: 0 5% 0;
+  }
+
+/* Play Button */ 
 #play-btn{
-  position: absolute;
-  top: 60%;
-  left: 39.5%;
-  margin: 0%;
+  position: relative;
+  top: 120px;
+  margin: auto;
   width: 300px;
   height: 50px;
   font-size: 2rem;
+  display: block;
 }
 
 #play-btn a{
@@ -155,7 +185,6 @@ body{
 }
 
 /* Create / join button */
-
 .modal-window {
   position: fixed;
   background-color: rgba(255, 255, 255, 0.25);
