@@ -1,16 +1,18 @@
 const express=require('express');
-const idGenerator=require('nodejs-unique-numeric-id-generator');
 const Router=express.Router();
 
 Router.get('/', (req,res)=>{
     res.render('index')
 });
 
-Router.post('/createroom',(req,res)=>{
-    const { numpi , botallowed='off' }=req.body;
-    console.log(numpi+" "+botallowed)
-    return res.send("Uploaded")
-})
+// Routes for authentications
+Router.use('/auth',require('./auth'));
+
+// Routes for Room
+Router.use('/room',require('./room'));
+
+// Routes for user
+Router.use('/user',require('./user'));
 
 
 
