@@ -1,0 +1,114 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go Bingo | <%= roomid%>
+  </title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Local Css -->
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+
+<body>
+  <img class="speaker-img" src="/images/loud-speaker.png" alt="speaker image">
+
+  <div class="players-div">
+    <img class="player-img" src="/images/man.png" alt="">
+    <img class="player-img" src="/images/man.png" alt="">
+    <img class="player-img" src="/images/man.png" alt="">
+    <img class="player-img" src="/images/man.png" alt="">
+  </div>
+
+  <div class="bingo-box">
+    <table>
+      <tr>
+        <td class="box" id="00">1</td>
+        <td class="box" id="01">2</td>
+        <td class="box" id="02">1</td>
+        <td class="box" id="03">2</td>
+        <td class="box" id="04">1</td>
+      </tr>
+      <tr>
+        <td class="box" id="10">1</td>
+        <td class="box" id="11">2</td>
+        <td class="box" id="12">1</td>
+        <td class="box" id="13">2</td>
+        <td class="box" id="14">1</td>
+      </tr>
+      <tr>
+        <td class="box" id="20">1</td>
+        <td class="box" id="21">2</td>
+        <td class="box" id="22">1</td>
+        <td class="box" id="23">2</td>
+        <td class="box" id="24">1</td>
+      </tr>
+      <tr>
+        <td class="box" id="30">1</td>
+        <td class="box" id="31">2</td>
+        <td class="box" id="32">1</td>
+        <td class="box" id="33">2</td>
+        <td class="box" id="34">1</td>
+      </tr>
+      <tr>
+        <td class="box" id="40">1</td>
+        <td class="box" id="41">2</td>
+        <td class="box" id="42">1</td>
+        <td class="box" id="43">2</td>
+        <td class="box" id="44">1</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="rules-btn">
+    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Rules</button>
+
+    <div id="id01" class="w3-modal w3-animate-opacity">
+      <div class="w3-modal-content w3-card-4">
+        <header class="w3-container w3-teal">
+          <span onclick="document.getElementById('id01').style.display='none'"
+            class="w3-button w3-large w3-display-topright">&times;</span>
+          <h2>Modal Header</h2>
+        </header>
+        <div class="w3-container">
+          <p>Some text..</p>
+          <p>Some text..</p>
+        </div>
+        <footer class="w3-container w3-teal">
+          <p>Modal Footer</p>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <h3>Timeline</h3>
+    <p>Heelo</p>
+    <p>Heelo</p>
+    <p>Heelo</p>
+    <p>Heelo</p>
+  </div>
+
+  <div class="chatbox">
+    <h3>Chatbox</h3>
+    <p>Heelo</p>
+    <p>Heelo</p>
+    <p>Heelo</p>
+    <p>Heelo</p>
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -35,7 +35,13 @@ const userSchema=new mongoose.Schema({
     lastWin: {
         type: Boolean,
         default: false
-    }
+    },
+    friends:[
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ]
 },{
     timestamps: true
 });
