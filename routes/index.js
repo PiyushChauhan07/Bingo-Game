@@ -1,7 +1,8 @@
 const express=require('express');
 const Router=express.Router();
+const { checkAuth }=require('../config/middleware');
 
-Router.get('/', (req,res)=>{
+Router.get('/',(req,res)=>{
     res.render('index')
 });
 
@@ -9,10 +10,10 @@ Router.get('/', (req,res)=>{
 Router.use('/auth',require('./auth'));
 
 // Routes for Room
-Router.use('/room',require('./room'));
+Router.use('/room',checkAuth,require('./room'));
 
 // Routes for user
-Router.use('/user',require('./user'));
+Router.use('/user',checkAuth,require('./user'));
 
 
 
