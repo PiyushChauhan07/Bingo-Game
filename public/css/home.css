@@ -1,70 +1,227 @@
 body{
-    background-color: #323232;
-    color: #fff;
-}
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin: 0;
+  }
+  
+  /* scrollbar design */
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+   
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background-color: #000;
+    outline: 0px solid rgb(3, 3, 3);
+  }
+  
+  .bingo-box{
+      position: relative;
+      display: inline;
+      left: 46rem;
+      top: 7rem;
+      clear: left;
+      clear: right;
+  }
 
-.bingo-box{
+  .bingo-line{
+    position: relative;
+    left: 75rem;
+    clear: left;
+    display: inline;
+  }
+
+  .bingo-word{
+    margin: 2rem 0;
+  }
+  
+  .speaker-img{
+    position: relative;
+    top: 1rem;
+    right: 20rem;
+    width: 15%;
+  }
+  
+  .rules-btn{
+    position: relative;
+    top: 2rem;
+    color: #000;
+  }
+  
+  .player-section{
+    position: relative;
+    left: 40rem;
+  }
+  
+  #speech-bubble {
+    width: 50px; 
+    height: 50px; 
+    background: #5ac4ed;
     position: absolute;
-    left: 40%;
-    top: 40%;
-}
-
-.speaker-img{
-    width: 4%;
-    margin: 1% 0 0 1%;
-}
-
-.players-div{
+    left:100px;
+    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px; 
+    border-radius: 10px;
+  }
+  #speech-bubble:before {
+    content:"";
     position: absolute;
-    left: 35%;
-    top: 15%;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 26px solid #5ac4ed;
+    border-bottom: 13px solid transparent;
+    margin: 13px 0 0 -25px;
+  }
+  .speech-bubble-Number{
+     text-align: center;
+     font-size: 2rem;
+  }
+  
+  .players-div{
+    text-align: center;
+    margin: 2rem 0;
     display: flex;
     flex-wrap: wrap;
-}
-
-.player-img{
-    width: 7%;
-    margin: 0 2%;
-}
-
-table{
+  }
+  
+  .player-img{
+    width: 3rem;
+    margin: 0 3rem;
+  }
+  
+  table{
     border-collapse: collapse;
     text-align: center;
+  }
   
-}
-
-table td{
-    border: 1px solid white;
-    width: 50px;
-    height: 50px;
-}
-
-.rules-btn{
+  table td{
+      width: 70px;
+      height: 70px;
+  }
+  
+  .bingo-table .box{
+    border: 1px solid #000;
+  }
+  
+    /* The side navigation menu */
+    .message{
+      height: 100vh;
+      /* 100% Full-height */
+      width: 300px;
+      /* 0 width - change this with JavaScript */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Stay on top */
+      bottom: 0;
+      /* Stay at the top */
+      left: 97rem;
+      background-color: #111;
+      /* Black*/
+      overflow-x: hidden;
+      /* Disable horizontal scroll */
+      overflow-y: hidden;
+      padding: 10px;
+      /* Place content 60px from the top */
+      transition: 0.5s;
+      /* 0.5 second transition effect to slide in the sidenav */
+    }
+  
+    #timeline{
+      height: 39vh;
+      color: #fff;
+    }
+  
+    #message-box {
+      /* display: none; */
+      height: 60vh;
+      overflow-y: auto;
+    }
+  
+    #send-box {
+      /* display: none; */
+    }
+  
+    .message-user {
+      padding-bottom: 5px;
+      font-size: 13px;
+      color: #818181;
+      margin: 0px 5px;
+      display: block;
+    }
+  
+    .chat-message {
+      background-color: white;
+      width: 50%;
+      padding: 4px;
+      font-size: 14px;
+      margin: 5px 5px;
+      overflow-wrap: break-word;
+      border-radius: 9px;
+    }
+  
+    #chat-box {
+      padding: 5px 5px;
+      background: transparent;
+      color: white;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid white;
+    }
+  
+  .ftr{
+      width: 100%;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      padding: 4px;
+  }
+  
+  /* Player Moves Section */
+  .scrolldown{
     position: absolute;
-    bottom: 5%;
-    left: 1%;
-    color: #000;
-}
-
-.timeline{
-    background-color: rgb(88, 171, 223);
-    position: absolute;
-    right: 5%;
-}
-
-.chatbox{
-    background-color: rgb(59, 155, 215);
-    position: absolute;
-    bottom: 20%;
-    right: 5%;
-}
-
-.ftr{
-    width: 100%;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    position: fixed;
     bottom: 0;
-    padding: 4px;
-}
+    display: inline-block;
+    margin: 0;
+  }
+  
+  table.scrolldown {
+    width: 375px;
+    border-spacing: 0;
+    border: 2px solid black;
+  }
+  
+  table.scrolldown tbody, table.scrolldown thead {
+    display: block;
+  } 
+  
+  th, .t-head .t-r {
+    height: 40px; 
+    line-height: 40px;
+  }
+  
+  table.scrolldown tbody {
+    height: 250px; 
+    overflow-y: auto;
+    overflow-x: hidden; 
+  }
+  
+  .scrolldown tbody { 
+    border-top: 2px solid black;
+  }
+  
+  .scrolldown tbody td, th {
+    width : 125px;
+    border-right: 2px solid black;
+    text-align: center;
+  }
+  
+  .scrolldown td {
+    text-align:center;
+  } 

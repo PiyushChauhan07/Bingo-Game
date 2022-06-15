@@ -25,14 +25,14 @@ module.exports.post_signin = async (req, res) => {
                     }
                     else {
                         req.flash('error', 'Please add correct details !!!');
-                        return res.redirect('/auth/login');
+                        return res.redirect('/auth/signin');
                     }
                 })
 
             }
             else {
                 req.flash('error', 'User not exist !!!!');
-                return res.redirect('/auth/login');
+                return res.redirect('/auth/signin');
             }
         })
         .catch(err => {
