@@ -11,7 +11,6 @@
 
     <!-- Local Css -->
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="../lib/w3.css">
 
 
 </head>
@@ -20,12 +19,14 @@
     <div class="profile-section">
       <div class="infocardContainer">
           <div id="main">
-            <img src="../images/profile-user.png"></img>
+            <img src="images/profile-user.png"></img>
           </div>
           <div id="textbois">
-            <h2>Profile</h2>
-            <h4>Matches Played</h4>
-            <a href="www.google.com">Won/Lost</a>
+            <h2><%= username %></h2>
+            <h3>Name: <%= name %></h3>
+            <h4>Matches Played: <%= matches.played %></h4>
+            <h4>Won: <%= matches.won %> </h4>
+            <h4>Lost: <%= matches.lost %> </h4>
             <div id="hotlinks">
               <a href="https://codepen.io/LIMESTA"><img id="codepenio" src="https://blog.codepen.io/wp-content/uploads/2012/06/Button-Fill-Black-Small.png" target="_blank"></img>
               </a>
@@ -44,12 +45,12 @@
 
         <!-- Signup button -->
         <div class="signup-btn">
-            <a href="/auth/signin"><button type="submit" class="glow-on-hover btn btn-sm">Signin</button></a>
-            <a href="/auth/signup"><button type="submit" class="glow-on-hover btn btn-sm">Signup</button></a>
+            <a href="/auth/signin"><button type="submit" class="glow-on-hover btn btn-sm" id="authsignin">Signin</button></a>
+            <a href="/auth/signup"><button type="submit" class="glow-on-hover btn btn-sm" id="authsignup" >Signup</button></a>
         </div>
 
         <div>
-          <div class="friends-container">
+          <div class="friends-container" id="frnds">
             <div style ="position:sticky; top:0; background-color: black;">
               <h3>Friends List</h3>
             </div>
@@ -78,7 +79,7 @@
         <div class="container">
           <a href="#"><button class="glow-on-hover btn-sm" id="play-btn" type="button">Play</button></a>
           <div class="interior">
-            <a href="#open-modal-1"><button class="glow-on-hover btn btn-sm" type="button">Create</button></a>
+            <button class="glow-on-hover btn btn-sm" id="create" type="button">Create</button>
             <a href="#open-modal-2"><button class="glow-on-hover btn btn-sm" type="button">Join</button></a>
           </div>
         </div>
@@ -86,7 +87,7 @@
         <!-- create modal  -->
         <div id="open-modal-1" class="modal-window">
           <div>
-            <a href="#" title="Close" class="modal-close">Close</a>
+            <button title="Close" id="close" class="modal-close">Close</button>
             <h1>Voilà!</h1>
             <h4> Max Participants</h4>
             <form action="/room/create" method="post">
@@ -124,4 +125,24 @@
         </div>
 
 </body>
+<script>
+  username="<%= username %>";
+  if(username && username.length>0 && username!=='NA' ){
+    document.getElementById('authsignin').style.display="none";
+    document.getElementById('authsignup').style.display="none";
+    document.getElementById('frnds').style.top=20;
+  }
+  document.getElementById('create').addEventListener('click',()=>{
+    const modal=document.getElementById('open-modal-1');
+    modal.style.visibility='visible';
+    modal.style.opacity=1;
+    modal.style.pointerEvents='auto';
+  })
+  document.getElementById('close').addEventListener('click',()=>{
+    const modal=document.getElementById('open-modal-1');
+    modal.style.visibility='hidden';
+    modal.style.opacity=0;
+    modal.style.pointerEvents='none';
+  })
+</script>
 </html> 

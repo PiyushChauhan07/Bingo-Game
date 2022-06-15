@@ -14,12 +14,18 @@ module.exports.checkAuth=async (req,res,next)=>{
         }
         catch(err){
             res.cookie('jwt','none');
-            req.flash('error','Please login !!!');
-            return res.redirect('/auth/login');
         }
         
     }
-    req.flash('error','Please register yourself !!!')
-    return res.redirect('/auth/signup');
+    req.flash('warning','Please register yourself');
+        return res.render('index',{
+            username: 'NA',
+            name: 'NA',
+            matches: {
+                played: 0,
+                won: 0,
+                lost: 0
+            }
+        });
 }
 

@@ -1,10 +1,9 @@
 const express=require('express');
 const Router=express.Router();
 const { checkAuth }=require('../config/middleware');
+const { homePage }=require('../controllers/user')
 
-Router.get('/',(req,res)=>{
-    res.render('index')
-});
+Router.get('/', checkAuth ,homePage);
 
 // Routes for authentications
 Router.use('/auth',require('./auth'));
