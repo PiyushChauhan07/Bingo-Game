@@ -1,101 +1,56 @@
+/* font-family: 'Arima Madurai', cursive;
+font-family: 'Cabin Sketch', cursive;
+font-family: 'Cinzel Decorative', cursive;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Love Ya Like A Sister', cursive;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Raleway', sans-serif;
+font-family: 'Roboto', sans-serif; */
+
 body{
-    overflow-y: hidden;
-    overflow-x: hidden;
-    margin: 0;
-  }
-  
-  /* scrollbar design */
-  ::-webkit-scrollbar {
-    width: 0px;
-  }
+   overflow: hidden;
+   margin:0;
+   background-image: url(/images/cover-photo2.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
    
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
-  }
-   
-  ::-webkit-scrollbar-thumb {
-    background-color: #000;
-    outline: 0px solid rgb(3, 3, 3);
-  }
-  
-  .bingo-box{
-      position: relative;
-      display: inline;
-      left: 46rem;
-      top: 7rem;
-      clear: left;
-      clear: right;
-  }
+}
 
-  .bingo-line{
-    position: relative;
-    left: 75rem;
-    clear: left;
-    display: inline;
-  }
 
-  .bingo-word{
-    margin: 2rem 0;
-  }
-  
-  .speaker-img{
+
+.header .vol #volume-button{
+    position:absolute;
+    height:100px;
+    padding:20px;
+    margin-left: 5px;
+    cursor:pointer;
+}
+
+.upper{
+    width:50%;
     position: relative;
-    top: 1rem;
-    right: 20rem;
-    width: 15%;
-  }
-  
-  .rules-btn{
-    position: relative;
-    top: 2rem;
-    color: #000;
-  }
-  
-  .player-section{
-    position: relative;
-    left: 40rem;
-  }
-  
-  #speech-bubble {
-    width: 50px; 
-    height: 50px; 
-    background: #5ac4ed;
-    position: absolute;
-    left:100px;
-    -moz-border-radius: 10px; 
-    -webkit-border-radius: 10px; 
-    border-radius: 10px;
-  }
-  #speech-bubble:before {
-    content:"";
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 13px solid transparent;
-    border-right: 26px solid #5ac4ed;
-    border-bottom: 13px solid transparent;
-    margin: 13px 0 0 -25px;
-  }
-  .speech-bubble-Number{
-     text-align: center;
-     font-size: 2rem;
-  }
-  
-  .players-div{
+    left:21%;
+    right:25%;
     text-align: center;
-    margin: 2rem 0;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .player-img{
-    width: 3rem;
-    margin: 0 3rem;
-  }
-  
-  table{
+}
+
+.upper .person .person-image{
+    height:100px;
+    padding:10px;
+   
+}
+
+.upper .person{
+    
+}
+.middle{
+    padding-right: 20%;
+}
+table{
     border-collapse: collapse;
     text-align: center;
+    cursor: pointer;
+    margin-top:5%;
   }
   
   table td{
@@ -104,124 +59,171 @@ body{
   }
   
   .bingo-table .box{
-    border: 1px solid #000;
+    color:white;
+    border: 2px solid white;
+    background-color:black;
   }
-  
-    /* The side navigation menu */
-    .message{
-      height: 100vh;
-      /* 100% Full-height */
-      width: 300px;
-      /* 0 width - change this with JavaScript */
-      position: fixed;
-      /* Stay in place */
-      z-index: 1;
-      /* Stay on top */
-      bottom: 0;
-      /* Stay at the top */
-      left: 97rem;
-      background-color: #111;
-      /* Black*/
-      overflow-x: hidden;
-      /* Disable horizontal scroll */
-      overflow-y: hidden;
-      padding: 10px;
-      /* Place content 60px from the top */
-      transition: 0.5s;
-      /* 0.5 second transition effect to slide in the sidenav */
-    }
-  
-    #timeline{
-      height: 39vh;
-      color: #fff;
-    }
-  
-    #message-box {
-      /* display: none; */
-      height: 60vh;
-      overflow-y: auto;
-    }
-  
-    #send-box {
-      /* display: none; */
-    }
-  
-    .message-user {
-      padding-bottom: 5px;
-      font-size: 13px;
-      color: #818181;
-      margin: 0px 5px;
-      display: block;
-    }
-  
-    .chat-message {
-      background-color: white;
-      width: 50%;
-      padding: 4px;
-      font-size: 14px;
-      margin: 5px 5px;
-      overflow-wrap: break-word;
-      border-radius: 9px;
-    }
-  
-    #chat-box {
-      padding: 5px 5px;
-      background: transparent;
-      color: white;
-      outline: none;
-      border: none;
-      border-bottom: 1px solid white;
-    }
-  
-  .ftr{
-      width: 100%;
-      background-color: black;
-      color: #fff;
-      text-align: center;
-      position: fixed;
-      bottom: 0;
-      padding: 4px;
-  }
-  
-  /* Player Moves Section */
-  .scrolldown{
-    position: absolute;
-    bottom: 0;
-    display: inline-block;
-    margin: 0;
-  }
-  
-  table.scrolldown {
-    width: 375px;
-    border-spacing: 0;
-    border: 2px solid black;
-  }
-  
-  table.scrolldown tbody, table.scrolldown thead {
-    display: block;
-  } 
-  
-  th, .t-head .t-r {
-    height: 40px; 
-    line-height: 40px;
-  }
-  
-  table.scrolldown tbody {
-    height: 250px; 
-    overflow-y: auto;
-    overflow-x: hidden; 
-  }
-  
-  .scrolldown tbody { 
-    border-top: 2px solid black;
-  }
-  
-  .scrolldown tbody td, th {
-    width : 125px;
-    border-right: 2px solid black;
+
+
+.queue-box{
+    
+    height:100%;
+}
+
+.queue-ul{
+   margin-left: 10%;
+   width:100px;
+   padding:0;
+}
+.queue-li{
+    font-size: 3rem;
+    padding:0;
     text-align: center;
+    color:aliceblue;
+    /* background-color: #4d79ff; */
+    /* text-align: left; */
+}
+
+.bingo-word{
+    font-size: 3rem;
+    
+}
+
+.child{
+width: 2%;
+height:100%;
+float: left;
+}
+
+.bar{
+    /* background-color:white; */
+    margin-top: 4.5%;
+    margin-left:12%;
+    height:85%;
+    /* border: 1px solid black; */
+}
+
+.meter-B{
+    height:20%;
+    background-color:#ff0000;
+}
+.meter-I{
+    height:20%;
+    background-color: #e60000;
+}
+.meter-N{
+    height:20%;
+    background-color: #cc0000;
+}
+.meter-G{
+    height:20%;
+    background-color: #b30000;
+}
+.meter-O{
+    height:20%;
+    background-color: #990000;
+}
+
+.vol {
+    display:inline-flex;
+    width:100%;
+    height:80px;
+}
+
+.speech-bubble {
+	position: relative;
+	background: #00aabb;
+	border-radius: .4em;
+    height:50px;
+    width:70px;
+    margin-left:24%;
+    margin-top: 1.5%;
+    text-align: center;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 1.563em solid transparent;
+	border-top-color: #00aabb;
+	border-bottom: 0;
+	margin-left: -1.562em;
+	margin-bottom: -0.562em;
+    
+}
+.rules-button-div{
+    height:50px;
+}
+
+.rules-button{
+    /* margin-top: -0.8%; */
+    margin-left: 3%;
+}
+
+.message{
+    height: 100vh;
+    /* 100% Full-height */
+    width: 300px;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Stay on top */
+    bottom: 0;
+    right:0;
+    /* Stay at the top */
+    /* left: 97rem; */
+    background-color: #111;
+    /* Black*/
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    overflow-y: hidden;
+    padding: 10px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
   }
-  
-  .scrolldown td {
-    text-align:center;
-  } 
+
+  #timeline{
+    height: 39vh;
+    color: #fff;
+  }
+
+  #message-box {
+    /* display: none; */
+    height: 60vh;
+    overflow-y: auto;
+  }
+
+
+
+  .message-user {
+    padding-bottom: 5px;
+    font-size: 13px;
+    color: #818181;
+    margin: 0px 5px;
+    display: block;
+  }
+
+  .chat-message {
+    background-color: white;
+    width: 50%;
+    padding: 4px;
+    font-size: 14px;
+    margin: 5px 5px;
+    overflow-wrap: break-word;
+    border-radius: 9px;
+  }
+
+  #chat-box {
+    padding: 5px 5px;
+    background: transparent;
+    color: white;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid white;
+  }
