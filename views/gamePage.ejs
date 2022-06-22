@@ -1,113 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GamePage</title>
-    <link rel="stylesheet" href="/css/home.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go binGo | <%= roomid %>
+  </title>
+  <link rel="stylesheet" href="/css/home.css">
 
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 
-    <!-- Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai&family=Cabin+Sketch:wght@700&family=Cinzel+Decorative:wght@900&family=Kaushan+Script&family=Love+Ya+Like+A+Sister&family=Press+Start+2P&family=Raleway:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Arima+Madurai&family=Cabin+Sketch:wght@700&family=Cinzel+Decorative:wght@900&family=Kaushan+Script&family=Love+Ya+Like+A+Sister&family=Press+Start+2P&family=Raleway:wght@300&family=Roboto:wght@300&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" integrity="sha512-0p3K0H3S6Q4bEWZ/WmC94Tgit2ular2/n0ESdfEX8l172YyQj8re1Wu9s/HT9T/T2osUw5Gx/6pAZNk3UKbESw==" crossorigin="anonymous" />
 </head>
+
 <body>
 
-<div class="header">
+  <div class="header">
     <div class="vol">
-        <img id="volume-button" src="/images/speaker.png" onclick="changeImage()">
-        <div class="speech-bubble"><h1 style="font-size: 2rem;">6</h1></div> 
+      <img id="volume-button" src="/images/speaker.png" onclick="changeImage()">
+      <div class="speech-bubble">
+        <h1 style="font-size: 2rem;">6</h1>
+      </div>
     </div>
     <div class="row upper" style="font-family: 'Cinzel Decorative', cursive;">
-        <div class="col col-lg-3 col-md-4 col-sm-6 person"><img class="person-image" src="/images/man2.png"><p>Rao Mayank</p></div>
-        <div class="col col-lg-3 col-md-4 col-sm-6 person"><img class="person-image" src="/images/man2.png"><p>Pepso</p></div>
-        <div class="col col-lg-3 col-md-4 col-sm-6 person"><img class="person-image" src="/images/man2.png"><p>Ritik</p></div>
-        <div class="col col-lg-3 col-md-4 col-sm-6 person"><img class="person-image" src="/images/man2.png"><p>Piyush</p></div>
-    </div>
-    
-</div>
-
-<div class="row middle-sec">
-     <div class="col col-lg-4 col-md-6 col-sm-6 queue">
-        <div class="queue-box">
-            <ul class="queue-ul" style="list-style: none; font-family: 'Cabin Sketch', cursive;">
-                <li class="queue-li" style="border-bottom:1px solid white;">2</li>
-                <li class="queue-li" style="border-bottom:1px solid white;">2</li>
-                <li class="queue-li" style="border-bottom:1px solid white;">2</li>
-                <li class="queue-li" style="border-bottom:1px solid white;">2</li>
-                <li class="queue-li">2</li>
-            </ul>
+      <% for(var i=0;i<numpi; i++ ){ %>
+        <div class="col col-lg-3 col-md-4 col-sm-6 person"><img class="person-image" src="/images/man2.png">
+          <p>User <%= i+1 %>
+          </p>
         </div>
+        <% } %>
+
+    </div>
+
+  </div>
+
+  <div class="row middle-sec">
+    <div class="col col-lg-4 col-md-6 col-sm-6 queue">
+      <div class="queue-box">
+        <ul class="queue-ul" style="list-style: none; font-family: 'Cabin Sketch', cursive;" id="history" >
+          <li class="queue-li" style="border-bottom:1px solid white;">2</li>
+          <li class="queue-li" style="border-bottom:1px solid white;">2</li>
+          <li class="queue-li" style="border-bottom:1px solid white;">2</li>
+          <li class="queue-li" style="border-bottom:1px solid white;">2</li>
+          <li class="queue-li">2</li>
+        </ul>
+      </div>
     </div>
     <div class="col col-lg-4 col-md-6 col-sm-6 bingo-box" id="bingobox">
-        <table class="bingo-table" style="font-family: 'Press Start 2P', cursive;">
-            <tr>
-                <td class="box" id="00">1</td>
-                <td class="box" id="01">2</td>
-                <td class="box" id="02">1</td>
-                <td class="box" id="03">2</td>
-                <td class="box" id="04">1</td>
-            </tr>
-            <tr>
-                <td class="box" id="10">1</td>
-                <td class="box" id="11">2</td>
-                <td class="box" id="12">1</td>
-                <td class="box" id="13">2</td>
-                <td class="box" id="14">1</td>
-            </tr>
-            <tr>
-                <td class="box" id="20">1</td>
-                <td class="box" id="21">2</td>
-                <td class="box" id="22">1</td>
-                <td class="box" id="23">2</td>
-                <td class="box" id="24">1</td>
-            </tr>
-            <tr>
-                <td class="box" id="30">1</td>
-                <td class="box" id="31">2</td>
-                <td class="box" id="32">1</td>
-                <td class="box" id="33">2</td>
-                <td class="box" id="34">1</td>
-            </tr>
-            <tr>
-                <td class="box" id="40">1</td>
-                <td class="box" id="41">2</td>
-                <td class="box" id="42">1</td>
-                <td class="box" id="43">2</td>
-                <td class="box" id="44">1</td>
-            </tr>
-        </table>
+      <table class="bingo-table" style="font-family: 'Press Start 2P', cursive;">
+        <tr>
+          <td class="box" id="00" onclick="myMove('00')" >1</td>
+          <td class="box" id="01" onclick="myMove('01')" >2</td>
+          <td class="box" id="02" onclick="myMove('02')" >1</td>
+          <td class="box" id="03" onclick="myMove('03')" >2</td>
+          <td class="box" id="04" onclick="myMove('04')" >1</td>
+        </tr>
+        <tr>
+          <td class="box" id="10" onclick="myMove('10')" >1</td>
+          <td class="box" id="11" onclick="myMove('11')" >2</td>
+          <td class="box" id="12" onclick="myMove('12')" >1</td>
+          <td class="box" id="13" onclick="myMove('13')" >2</td>
+          <td class="box" id="14" onclick="myMove('14')" >1</td>
+        </tr>
+        <tr>
+          <td class="box" id="20" onclick="myMove('20')" >1</td>
+          <td class="box" id="21" onclick="myMove('21')" >2</td>
+          <td class="box" id="22" onclick="myMove('22')" >1</td>
+          <td class="box" id="23" onclick="myMove('23')" >2</td>
+          <td class="box" id="24" onclick="myMove('24')" >1</td>
+        </tr>
+        <tr>
+          <td class="box" id="30" onclick="myMove('30')" >1</td>
+          <td class="box" id="31" onclick="myMove('31')" >2</td>
+          <td class="box" id="32" onclick="myMove('32')" >1</td>
+          <td class="box" id="33" onclick="myMove('33')" >2</td>
+          <td class="box" id="34" onclick="myMove('34')" >1</td>
+        </tr>
+        <tr>
+          <td class="box" id="40" onclick="myMove('40')" >1</td>
+          <td class="box" id="41" onclick="myMove('41')" >2</td>
+          <td class="box" id="42" onclick="myMove('42')" >1</td>
+          <td class="box" id="43" onclick="myMove('43')" >2</td>
+          <td class="box" id="44" onclick="myMove('44')" >1</td>
+        </tr>
+      </table>
     </div>
     <div class="col col-lg-4 col-md-6 col-sm-6 bingo-word">
-            <div class="child" style="font-family: 'Kaushan Script', cursive;"><p>B<br>I<br>N<br>G<br>O</p></div>
-            <div class="child bar">
-                <div class="common-meter meter-B"></div>
-                <div class="common-meter meter-I"></div>
-                <div class="common-meter meter-N"></div>
-                <div class="common-meter meter-G"></div>
-                <div class="common-meter meter-O"></div>
-            </div>
+      <div class="child" style="font-family: 'Kaushan Script', cursive;">
+        <p>B<br>I<br>N<br>G<br>O</p>
+      </div>
+      <div class="child bar">
+        <div class="common-meter meter-B"></div>
+        <div class="common-meter meter-I"></div>
+        <div class="common-meter meter-N"></div>
+        <div class="common-meter meter-G"></div>
+        <div class="common-meter meter-O"></div>
+      </div>
 
     </div>
-</div>
+  </div>
 
-<!-- Button trigger modal -->
-<div class="rules-button-div">
+  <!-- Button trigger modal -->
+  <div class="rules-button-div">
     <button type="button" class="rules-button btn btn-dark" data-toggle="modal" data-target="#Rules-modal">
-        <span style="font-family: 'Raleway', sans-serif;">Peek Rules</span>
+      <span style="font-family: 'Raleway', sans-serif;">Peek Rules</span>
     </button>
-</div>
-  
+  </div>
+
   <!-- Modal -->
-  <div class="modal fade" id="Rules-modal" tabindex="-1" role="dialog" aria-labelledby="Rules-modalCenterTitle" aria-hidden="true">
+  <div class="modal fade" id="Rules-modal" tabindex="-1" role="dialog" aria-labelledby="Rules-modalCenterTitle"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -117,11 +138,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <p>1. RESPECT ADMINS</p>
-          <p>2. RESPECT ONLY 2 ADMINS</p>
-          <p>3. RESPECT PEPSO</p>
-          <p>4. RESPECT RAO</p>
-          <p>5. NOW ENJOY THE GAME</p>
+          <p> RESPECT OTHER PLAYERS</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -133,12 +150,7 @@
 
   <div id="chatbox" class="message">
     <div id="timeline">
-      <ul>
-        <li>a</li>
-        <li>b</li>
-        <li>a</li>
-        <li>b</li>
-        <li>a</li>
+      <ul id="joined-user">
       </ul>
     </div>
     <hr style="border-top:1px solid white;">
@@ -154,24 +166,221 @@
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    //<----------------------|  Varibales |--------------------------------------->
+    const roomid = "<%= roomid %>";
+    const username = "<%= username %>";
+    // Is User admin or not
+    const admin='<%=admin%>';
+    // Number of Players
+    const players=parseInt('<%=numpi%>');
+    // It will store username who's turn is going on
+    var turnUsername="";
+    // Dequeue variables
+    let start=-1;
+    // Queue for storing history
+    let historyq=[];
+    // Bingo Board
+    var board=[[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15],[16,17,18,19,20],[21,22,23,24,25]];
 
 
-<script>
-    var sound=true;
-    function changeImage() {
-        if(sound){
-          sound=false;
-          document.getElementById("volume-button").src = "/images/mutes.png";
-        }
-        else{
-          sound=true;
-          document.getElementById("volume-button").src ="/images/speaker.png";
-        }
+    //<----------------------|  Taking all DOMS const |---------------------------->
+    const historyQueue=document.getElementById('history');
+
+    // Building socket connection
+    const socket = io();
+
+
+
+    //<----------------------| All Functions |-------------------------------------->
+
+    // Function for updating history
+    function updateHistory(num){
+      historyq.push(num);
+      if(start==-1 || historyq.length>5) start++;
+      for(let i=historyq.length; i>start;i--){
+        // <li class="queue-li" style="border-bottom:1px solid white;">2</li>
+        const li=createElement('li');
+        li.classList.add('queue-li');
+        li.style.borderBottom="1px solid white";
+        li.innerText=historyq[i];
+        historyQueue.appendChild(li);
+      }
+      const lastli=createElement('li');
+      li.classList.add('queue-li');
+      li.innerText=historyq[start];
+      historyQueue.appendChild(lastli);
     }
 
+    // Function for creating a random user board
+    function createBoard(){
 
-</script>
+    }
 
-    
+    // Function of win or not
+    function checkWin(){
+      // Row check
+      
+      // Column check
+
+      // Both diagnols check
+
+
+      // if(userWon) socket.emit('win',{username,roomid});
+
+    }
+
+    // Function for playing Move
+    function playMove(num){
+      // Play the move ( cut the number )
+
+      // Check whether user win or not
+
+    }
+
+    // Function for user move
+    function myMove(index){
+      if(username===turnUsername){
+      var num=document.getElementById(index).innerText;
+      playMove(num);
+      return num;
+      }
+    }
+
+    //
+
+
+
+
+
+    //<----------------------| Socket Events |-------------------------------------->
+    //  1) join-room: It will emitted once user join the room
+    //  2) user-joined: It will get emitted to know which user has joined the room
+    //  3) user-list: It will always update number of users in the room
+    //  4) receive: Used to receive chat messages from other players
+    //  5) send: used to send chat message to other memebers
+    //  6) started: It will tell user that game has started
+    //  7) turn: It will tell whose turn is going on
+    //  8) win: It will tell the user has won
+    //
+
+    socket.emit('join-room',({roomid,username}));
+
+    socket.on('user-joined',(usn)=>{
+      new Noty({
+        theme: 'relax',
+        text: `Welcome ${usn} in game`,
+        type: 'success',
+        layout: 'topRight',
+        timeout: 1500
+      }).show();
+    });
+
+    socket.on('user-list',(userList)=>{
+        const joinedlist=document.getElementById('joined-user');
+        joinedlist.innerHTML="";
+        for(var u=0;u<userList.length;u++){
+          const li=document.createElement('li');
+          li.innerText=userList[u];
+          joinedlist.append(li);
+        }
+        if(userList.length===players && admin=='true' ){
+          socket.emit('start',({  roomid,username }));
+        }
+    });
+
+
+    socket.on('receive',({data,user})=>{
+      console.log(`${data} received from user`);
+    });
+
+    socket.on('started',(usr)=>{
+      new Noty({
+        theme: 'relax',
+        text: `Game Started by ${usr}`,
+        type: 'success',
+        layout: 'topRight',
+        timeout: 1500
+      }).show();
+    });
+
+    socket.on('turn',(usr)=>{
+      turnUsername=usr;
+      // If it's Player turn
+       if(usr===username){
+        new Noty({
+        theme: 'relax',
+        text: `It's your turn ${usr}, Please choose a number`,
+        type: 'success',
+        layout: 'topRight',
+        timeout: 1500
+      }).show();
+       }
+       // If it's others turn
+       else{
+
+
+       }
+    });
+
+
+
+
+
+
+
+
+
+
+
+    // For Changing Image
+    var sound = true;
+    function changeImage() {
+      if (sound) {
+        sound = false;
+        document.getElementById("volume-button").src = "/images/mutes.png";
+      }
+      else {
+        sound = true;
+        document.getElementById("volume-button").src = "/images/speaker.png";
+      }
+    }
+    var flashwarning='<%= flash.warning %>';
+    if(flashwarning && flashwarning.length>0) { 
+    new Noty({
+        theme: 'relax',
+        text: "<%= flash.warning %>",
+        type: 'warning',
+        layout: 'topRight',
+        timeout: 1500
+      }).show();
+    } 
+    var flashsuccess='<%= flash.success %>';
+    if(flashsuccess && flashsuccess.length>0) { 
+    new Noty({
+        theme: 'relax',
+        text: "<%= flash.success %>",
+        type: 'success',
+        layout: 'topRight',
+        timeout: 1500
+      }).show();
+    } 
+    var flasherror='<%= flash.error %>';
+         if(flasherror && flasherror.length>0) { 
+         new Noty({
+             theme: 'relax',
+             text: "<%= flash.error %>",
+             type: 'error',
+             layout: 'topRight',
+             timeout: 1500
+            }).show();
+         }
+
+  </script>
+
+
 </body>
+
 </html>

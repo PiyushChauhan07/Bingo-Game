@@ -1,160 +1,240 @@
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go binGo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go binGo</title>
 
-    <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+    crossorigin="anonymous"></script>
 
-    <!-- Local Css -->
-    <link rel="stylesheet" href="css/styles.css">
+  <!-- Local Css -->
+  <link rel="stylesheet" href="css/styles.css">
 
-    <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/b9c831b2f3.js" crossorigin="anonymous"></script>
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/b9c831b2f3.js" crossorigin="anonymous"></script>
 
-    <!-- Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai&family=Cabin+Sketch:wght@700&family=Cinzel+Decorative:wght@900&family=Kaushan+Script&family=Love+Ya+Like+A+Sister&family=Press+Start+2P&family=Raleway:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
-  </head>
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Arima+Madurai&family=Cabin+Sketch:wght@700&family=Cinzel+Decorative:wght@900&family=Kaushan+Script&family=Love+Ya+Like+A+Sister&family=Press+Start+2P&family=Raleway:wght@300&family=Roboto:wght@300&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" integrity="sha512-0p3K0H3S6Q4bEWZ/WmC94Tgit2ular2/n0ESdfEX8l172YyQj8re1Wu9s/HT9T/T2osUw5Gx/6pAZNk3UKbESw==" crossorigin="anonymous" />
+</head>
+
 <body>
-    <!-- Profile & signup Signin Buttons -->
-    <section>
-        <div class="row container-fluid">
-            <div class="col-6 profile-section infocardContainer">
-                <div id="main">
-                    <img src="images/profile-user.png"></img>
-                </div>
-                <div id="textbois">
-                  <h2 style="font-family: 'Cabin Sketch', cursive;"><%= username %></h2>
-                  <p>Name: <%= name %></p>
-                  <p>Matches Played: <%= matches.played %></p>
-                  <p>Won: <%= matches.won %> </p>
-                  <p>Lost: <%= matches.lost %> </p>
-                </div>
-            </div>
-            <div class="signup-btn col-6">
-                <a href="/auth/signin"><button type="submit" class="glow-on-hover btn btn-sm" id="authsignin">Signin</button></a>
-                <a href="/auth/signup"><button type="submit" class="glow-on-hover btn btn-sm" id="authsignup" >Signup</button></a>
-            </div>
+  <!-- Profile & signup Signin Buttons -->
+  <section>
+    <div class="row container-fluid">
+      <div class="col-6 profile-section infocardContainer">
+        <div id="main">
+          <img src="images/profile-user.png"></img>
         </div>
-    </section>
-
-    <!-- Game Buttons and friends list -->
-    <section>
-        <div class="container-fluid align-items-center btn-friends-section">
-                <div class="container">
-                    <a href="#"><button class="glow-on-hover btn-sm" id="play-btn" type="button" style="font-family: 'Press Start 2P', cursive;">Play</button></a>
-                    <div class="interior">
-                      <button class="glow-on-hover btn btn-sm" id="create" type="button"  style="font-family: 'Press Start 2P', cursive;">Create</button>
-                      <button class="glow-on-hover btn btn-sm" id="join" type="button"  style="font-family: 'Press Start 2P', cursive;">Join</button>
-                    </div>
-                </div>
+        <div id="textbois">
+          <h2 style="font-family: 'Cabin Sketch', cursive;">
+            <%= username %>
+          </h2>
+          <p>Name: <%= name %>
+          </p>
+          <p>Matches Played: <%= matches.played %>
+          </p>
+          <p>Won: <%= matches.won %>
+          </p>
+          <p>Lost: <%= matches.lost %>
+          </p>
         </div>
+      </div>
+      <div class="signup-btn col-6">
+        <% if( username==="NA" ) { %>
+          <a href="/auth/signin"><button type="submit" class="glow-on-hover btn btn-sm"
+              id="authsignin">Signin</button></a>
+          <a href="/auth/signup"><button type="submit" class="glow-on-hover btn btn-sm"
+              id="authsignup">Signup</button></a>
+          <% } else {%>
+            <a href="/auth/signout"><button type="submit" class="glow-on-hover btn btn-sm"
+                id="authsignup">Signout</button></a>
+          <% } %>
+      </div>
+    </div>
+  </section>
 
-        <!-- create modal  -->
-        <div id="open-modal-1" class="modal-window">
-            <div>
-              <button title="Close1" id="close1" class="modal-close"><i class="fa-solid fa-xmark"></i></button>
-              <h1>Create Game</h1>
-              <h4> Max Participants</h4>
-              <form action="/room/create" method="POST">
-                  <input class="choose-part" type="radio" id="participants2" name="numpi" value="2">
-                  <label for="participants2">2</label>
-                  <input class="choose-part" type="radio" id="participants3" name="numpi" value="3">
-                  <label for="participants3">3</label>
-                  <input class="choose-part" type="radio" id="participants4" name="numpi" value="4">
-                  <label for="participants4">4</label>
-                  <input class="choose-part" type="radio" id="participants5" name="numpi" value="5">
-                  <label for="participants5">5</label><br>
-  
-                  <h4 style="display: inline;"> <br>Bots : <br></h4>
-                  <label class="switch">
-                    <input type="checkbox" name="botallowed" checked>
-                    <span class="slider round"></span>
-                  </label><br><br>
-  
-                  <button type="submit" class="btn btn-sm create-room-btn" style="font-family: 'Love Ya Like A Sister', cursive;">Create Room</button>
-                  <!-- <input type="submit" value="Submit"> -->
-                </form> 
-            </div>
+  <!-- Game Buttons and friends list -->
+  <section>
+    <div class="container-fluid align-items-center btn-friends-section">
+      <div class="container">
+        <a href="#"><button class="glow-on-hover btn-sm" id="play-btn" type="button"
+            style="font-family: 'Press Start 2P', cursive;">Play</button></a>
+        <div class="interior">
+          <button class="glow-on-hover btn btn-sm" id="create" type="button"
+            style="font-family: 'Press Start 2P', cursive;">Create</button>
+          <button class="glow-on-hover btn btn-sm" id="join" type="button"
+            style="font-family: 'Press Start 2P', cursive;">Join</button>
         </div>
-  
-          <!-- Join Modal -->
-          <div id="open-modal-2" class="modal-window">
-            <div>
-              <button title="Close2" id="close2" class="modal-close"><i class="fa-solid fa-xmark"></i></button>
-              <h1>Join Game</h1>
-              <h3>Enter Room Id</h3>
-              <input type="text" required="true">
-              <br>
-            </div>
-          </div>
+      </div>
+    </div>
 
-          <!-- Logput Button -->
-          <!-- <a href="/"><button type="submit" class="glow-on-hover btn btn-sm" id="logout-btn">Logout</button></a> -->
+    <!-- create modal  -->
+    <div id="open-modal-1" class="modal-window">
+      <div>
+        <button title="Close1" id="close1" class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+        <h1>Create Game</h1>
+        <h4> Max Participants</h4>
+        <form action="/room/create" method="POST">
+          <input class="choose-part" type="radio" id="participants2" name="numpi" value="2">
+          <label for="participants2">2</label>
+          <input class="choose-part" type="radio" id="participants3" name="numpi" value="3">
+          <label for="participants3">3</label>
+          <input class="choose-part" type="radio" id="participants4" name="numpi" value="4">
+          <label for="participants4">4</label>
+          <input class="choose-part" type="radio" id="participants5" name="numpi" value="5">
+          <label for="participants5">5</label><br>
 
-          <!-- Friends List-->
-            <div class="friends-container" id="frnds">
-              <div style ="position:sticky; top:0; color:#FFA500; background-color: #000; padding: 5px 0; font-family: 'Cinzel Decorative', cursive;">
-                <h3>Friends List</h3>
-              </div>
-              <p>BATISTA SOORAV</p>
-              <p>Piyush Gupta</p>
-              <p>Rao Mayank</p>
-              <p>Riiks</p>
-              <p>Khullii</p>
-              <p>Naveen</p>
-              <p>Sahil</p>
-              <p>Piyush Gupta</p>
-              <p>Rao Mayank</p>
-              <p>Riiks</p>
-              <p>Khullii</p>
-              <p>Naveen</p>
-              <p>Sahil</p>
-              <p>Piyush Gupta</p>
-              <p>Rao Mayank</p>
-              <p>Riiks</p>
-              <p>Khullii</p>
-              <p>Naveen</p>
-              <p>Sahil</p>
-            </div>
-    </section>
+          <h4 style="display: inline;"> <br>Bots : <br></h4>
+          <label class="switch">
+            <input type="checkbox" name="botallowed" checked>
+            <span class="slider round"></span>
+          </label><br><br>
+
+          <button type="submit" class="btn btn-sm create-room-btn"
+            style="font-family: 'Love Ya Like A Sister', cursive;">Create Room</button>
+          <!-- <input type="submit" value="Submit"> -->
+        </form>
+      </div>
+    </div>
+
+    <!-- Join Modal -->
+    <div id="open-modal-2" class="modal-window">
+      <div>
+        <button title="Close2" id="close2" class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+        <h1>Join Game</h1>
+        <h3>Enter Room Id</h3>
+        <input type="text" id="roomid" required="true">
+        <button  id="joinRoom" >Join</button>
+        <br>
+      </div>
+    </div>
+
+    <!-- Logput Button -->
+    <!-- <a href="/"><button type="submit" class="glow-on-hover btn btn-sm" id="logout-btn">Logout</button></a> -->
+
+    <!-- Friends List-->
+    <div class="friends-container" id="frnds">
+      <div
+        style="position:sticky; top:0; color:#FFA500; background-color: #000; padding: 5px 0; font-family: 'Cinzel Decorative', cursive;">
+        <h3>Friends List</h3>
+      </div>
+      <p>BATISTA SOORAV</p>
+      <p>Piyush Gupta</p>
+      <p>Rao Mayank</p>
+      <p>Riiks</p>
+      <p>Khullii</p>
+      <p>Naveen</p>
+      <p>Sahil</p>
+      <p>Piyush Gupta</p>
+      <p>Rao Mayank</p>
+      <p>Riiks</p>
+      <p>Khullii</p>
+      <p>Naveen</p>
+      <p>Sahil</p>
+      <p>Piyush Gupta</p>
+      <p>Rao Mayank</p>
+      <p>Riiks</p>
+      <p>Khullii</p>
+      <p>Naveen</p>
+      <p>Sahil</p>
+    </div>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous"></script>
+  <script>
+    username = "<%= username %>";
+       if (username !== "NA") {
+      document.getElementById('create').addEventListener('click', () => {
+        const modal = document.getElementById('open-modal-1');
+        modal.style.visibility = 'visible';
+        modal.style.opacity = 1;
+        modal.style.pointerEvents = 'auto';
+      })
+      document.getElementById('close1').addEventListener('click', () => {
+        const modal = document.getElementById('open-modal-1');
+        modal.style.visibility = 'hidden';
+        modal.style.opacity = 0;
+        modal.style.pointerEvents = 'none';
+      })
+      document.getElementById('join').addEventListener('click', () => {
+        const modal = document.getElementById('open-modal-2');
+        modal.style.visibility = 'visible';
+        modal.style.opacity = 1;
+        modal.style.pointerEvents = 'auto';
+      })
+      document.getElementById('close2').addEventListener('click', () => {
+        const modal = document.getElementById('open-modal-2');
+        modal.style.visibility = 'hidden';
+        modal.style.opacity = 0;
+        modal.style.pointerEvents = 'none';
+      })
+    }
+    else {
+      const url = window.location.href;
+      const loginpath = url + 'auth/signin';
+      document.getElementById('create').addEventListener('click', () => {
+        window.location.href = loginpath;
+      });
+      document.getElementById('join').addEventListener('click', () => {
+        window.location.href = loginpath;
+      });
+      // For Play button
+      // document.getElementById('join').addEventListener('click',()=>{
+      // });
+    }
+
+
+    document.getElementById('joinRoom').addEventListener('click',()=>{
+      var roomid=document.getElementById('roomid').value;
+      const url = window.location.href;
+      window.location.href=`${url}/room/${roomid}/joined`;
+      // http://localhost:5000/room/:roomid/joined
+    });
+
+
+    var flashwarning='<%= flash.warning %>';
+    if(flashwarning && flashwarning.length>0) { 
+    new Noty({
+        theme: 'relax',
+        text: "<%= flash.warning %>",
+        type: 'warning',
+        layout: 'topRight',
+        timeout: 1500
+      }).show();
+    } 
+    var flashsuccess='<%= flash.success %>';
+    if(flashsuccess && flashsuccess.length>0) { 
+    new Noty({
+        theme: 'relax',
+        text: "<%= flash.success %>",
+        type: 'success',
+        layout: 'topRight',
+        timeout: 1500
+      }).show();
+    } 
+    var flasherror='<%= flash.error %>';
+         if(flasherror && flasherror.length>0) { 
+         new Noty({
+             theme: 'relax',
+             text: "<%= flash.error %>",
+             type: 'error',
+             layout: 'topRight',
+             timeout: 1500
+            }).show();
+         }
     
-    <script>
-      username="<%= username %>";
-      if(username && username.length>0 && username!=='NA' ){
-        document.getElementById('authsignin').style.display="none";
-        document.getElementById('authsignup').style.display="none";
-        document.getElementById('frnds').style.top=100;
-      }
-      document.getElementById('create').addEventListener('click',()=>{
-        const modal=document.getElementById('open-modal-1');
-        modal.style.visibility='visible';
-        modal.style.opacity=1;
-        modal.style.pointerEvents='auto';
-      })
-      document.getElementById('close1').addEventListener('click',()=>{
-        const modal=document.getElementById('open-modal-1');
-        modal.style.visibility='hidden';
-        modal.style.opacity=0;
-        modal.style.pointerEvents='none';
-      })
-      document.getElementById('join').addEventListener('click',()=>{
-        const modal=document.getElementById('open-modal-2');
-        modal.style.visibility='visible';
-        modal.style.opacity=1;
-        modal.style.pointerEvents='auto';
-      })
-      document.getElementById('close2').addEventListener('click',()=>{
-        const modal=document.getElementById('open-modal-2');
-        modal.style.visibility='hidden';
-        modal.style.opacity=0;
-        modal.style.pointerEvents='none';
-      })
-    </script>   
+  </script>
 </body>
+
 </html>

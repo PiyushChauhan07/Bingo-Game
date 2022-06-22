@@ -89,3 +89,10 @@ module.exports.post_signup = (req, res) => {
             })
     }
 }
+
+// For Logging out user
+module.exports.get_signout=(req,res)=>{
+    req.session.destroy();
+    res.cookie('jwt','none');
+    res.redirect('/');
+}

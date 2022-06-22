@@ -3,7 +3,7 @@ const jwt=require('jsonwebtoken');
 
 module.exports.checkAuth=async (req,res,next)=>{
     
-    if(req.session.username){
+    if(req.session.username && req.session.username!=='NA' ){
         return next();
     }
     if( req.cookies && req.cookies.jwt && req.cookies.jwt!=='none'){
@@ -17,6 +17,7 @@ module.exports.checkAuth=async (req,res,next)=>{
         }
         
     }
+   
     req.flash('warning','Please register yourself');
         return res.render('index',{
             username: 'NA',
