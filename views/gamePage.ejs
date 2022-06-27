@@ -22,7 +22,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/b9c831b2f3.js" crossorigin="anonymous"></script>
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,11 +38,11 @@
   <div class="header">
     <div class="vol">
       <img id="volume-button" src="/images/speaker.png" onclick="changeImage()">
-      <div class="speech-bubble">
+      <!-- <div class="speech-bubble">
         <h1 style="font-size: 2rem;">6</h1>
-      </div>
+      </div> -->
     </div>
-    <div class="row upper" style="font-family: 'Cinzel Decorative', cursive;">
+    <div class="row upper" style="font-family: 'Cinzel Decorative', cursive;" id="user-show">
       <% for(var i=0;i<numpi; i++ ){ %>
         <div class="col col-lg-3 col-md-4 col-sm-6 person"><img class="person-image" src="/images/man2.png">
           <p>User <%= i+1 %>
@@ -57,11 +58,11 @@
     <div class="col col-lg-4 col-md-6 col-sm-6 queue">
       <div class="queue-box">
         <ul class="queue-ul" style="list-style: none; font-family: 'Cabin Sketch', cursive;" id="history" >
+          <!-- <li class="queue-li" style="border-bottom:1px solid white;">2</li>
           <li class="queue-li" style="border-bottom:1px solid white;">2</li>
           <li class="queue-li" style="border-bottom:1px solid white;">2</li>
           <li class="queue-li" style="border-bottom:1px solid white;">2</li>
-          <li class="queue-li" style="border-bottom:1px solid white;">2</li>
-          <li class="queue-li">2</li>
+          <li class="queue-li">2</li> -->
         </ul>
       </div>
     </div>
@@ -70,16 +71,16 @@
         <tr>
           <td class="box" id="00" onclick="myMove('00')" >1</td>
           <td class="box" id="01" onclick="myMove('01')" >2</td>
-          <td class="box" id="02" onclick="myMove('02')" >1</td>
-          <td class="box" id="03" onclick="myMove('03')" >2</td>
-          <td class="box" id="04" onclick="myMove('04')" >1</td>
+          <td class="box" id="02" onclick="myMove('02')" >3</td>
+          <td class="box" id="03" onclick="myMove('03')" >4</td>
+          <td class="box" id="04" onclick="myMove('04')" >5</td>
         </tr>
         <tr>
-          <td class="box" id="10" onclick="myMove('10')" >1</td>
-          <td class="box" id="11" onclick="myMove('11')" >2</td>
-          <td class="box" id="12" onclick="myMove('12')" >1</td>
-          <td class="box" id="13" onclick="myMove('13')" >2</td>
-          <td class="box" id="14" onclick="myMove('14')" >1</td>
+          <td class="box" id="10" onclick="myMove('10')" >6</td>
+          <td class="box" id="11" onclick="myMove('11')" >7</td>
+          <td class="box" id="12" onclick="myMove('12')" >8</td>
+          <td class="box" id="13" onclick="myMove('13')" >9</td>
+          <td class="box" id="14" onclick="myMove('14')" >10</td>
         </tr>
         <tr>
           <td class="box" id="20" onclick="myMove('20')" >1</td>
@@ -227,22 +228,24 @@
 
     // Function for updating history
     function updateHistory(num){
+      historyQueue.innerHTML="";
+      console.log(historyq);
       historyq.push(num);
       if(start==-1 || historyq.length>5) start++;
-      for(let i=historyq.length; i>start;i--){
+      for(let i=historyq.length-1; i>start;i--){
         // <li class="queue-li" style="border-bottom:1px solid white;">2</li>
-        const li=createElement('li');
+        const li=document.createElement('li');
         li.classList.add('queue-li');
         li.style.borderBottom="1px solid white";
         li.innerText=historyq[i];
         historyQueue.appendChild(li);
       }
-      const lastli=createElement('li');
-      li.classList.add('queue-li');
-      li.innerText=historyq[start];
+      const lastli=document.createElement('li');
+      lastli.classList.add('queue-li');
+      lastli.innerText=historyq[start];
       historyQueue.appendChild(lastli); 
     }
-
+    var userBingo =[[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15],[16,17,18,19,20],[21,22,23,24,25]];
     // Function for creating a random user board
     function createBoard(){
       
@@ -264,8 +267,6 @@
       //   }
       // }
 
-      var userBingo = ;
-
       for(let i=0;i<5;i++){
         for(let j=0;j<5;j++){
           let x=i.toString();
@@ -275,7 +276,7 @@
       }
 
     }
-
+createBoard();
     // Function of win or not
     function checkWin(userArrayBingo){
       
@@ -318,28 +319,31 @@
     function playMove(num){
 
       //check if num is present in map
-      if(!mapBingo.has(num))return "Number is not present";
+      if(!mapBingo.has(num))return;
 
 
+      updateHistory(num);
       // Play the move ( cut the number )
       mapBingo.delete(num);
 
       //assign -1 value in 2D array
 
-      let userArrayBingo=;
+      // let userArrayBingo=;
 
       for(let i=0;i<5;i++){
         for(let j=0;j<5;j++){
-          if(userArrayBingo[i][j]==num){
-            userArrayBingo[i][j]=-1;
+          if(userBingo[i][j]==num){
+            userBingo[i][j]=-1;
+            // cutMyMove(i,j)
             break;
           }
         }
+      }    
+      if(turnUsername===username){
+        socket.emit('move',{username,num,roomid});
       }
-
-
       // Check whether user win or not
-      if(checkWin(userArrayBingo))return "You Win";
+      if(checkWin(userBingo))return "You Win";
       return "continue playing";
     }
 
@@ -349,7 +353,8 @@
       var num=document.getElementById(index).innerText;
       num=parseInt(num);
       playMove(num);
-      return num;
+      // return num;
+     
       }
       else{
         new Noty({
@@ -377,7 +382,8 @@
     //  6) started: It will tell user that game has started
     //  7) turn: It will tell whose turn is going on
     //  8) win: It will tell the user has won
-    //
+    //  9) move: It will send num selected by user
+    //  10) other-turn: It will receive number from other user
 
     socket.emit('join-room',({roomid,username}));
 
@@ -394,11 +400,26 @@
     socket.on('user-list',(userList)=>{
         const joinedlist=document.getElementById('joined-user');
         joinedlist.innerHTML="";
+        const userShow=document.getElementById('user-show');
+        userShow.innerHTML="";
         for(var u=0;u<userList.length;u++){
           const li=document.createElement('li');
           li.innerText=userList[u];
           joinedlist.append(li);
+          if(userList[u]!==username){
+            const d=document.createElement('div');
+            d.classList.add('col', 'col-lg-3', 'col-md-4', 'col-sm-6', 'person');
+            const imgtag=document.createElement('img');
+            imgtag.src='/images/man2.png';
+            imgtag.classList.add('person-image');
+            d.appendChild(imgtag);
+            const ptag=document.createElement('p');
+            ptag.innerText=userList[u];
+            d.appendChild(ptag);
+            userShow.appendChild(d);
+          }
         }
+
         if(userList.length===players && admin=='true' ){
           socket.emit('start',({  roomid,username }));
         }
@@ -419,7 +440,8 @@
       }).show();
     });
 
-    socket.on('turn',(usr)=>{
+    socket.on('turn',({usr})=>{
+      // alert("turn called "+usr)
       turnUsername=usr;
       // If it's Player turn
        if(usr===username){
@@ -438,6 +460,24 @@
        }
     });
 
+    socket.on('other-turn',({username,num})=>{
+      // alert(username+" "+num);
+      playMove(num);
+    });
+
+    // For chatting purpose
+    document.getElementById('send-message').addEventListener('submit',(e)=>{
+      e.preventDefault();
+      let message=document.getElementById('chat-box').value;
+      socket.emit('send',({username,message,roomid}));
+      document.getElementById('chat-box').value=''
+    })
+
+    socket.on('receive',({username,message})=>{
+      alert(username+"  "+message);
+    })
+
+    
 
 
 
@@ -460,6 +500,10 @@
         document.getElementById("volume-button").src = "/images/speaker.png";
       }
     }
+
+
+
+    // For Notifications
     var flashwarning='<%= flash.warning %>';
     if(flashwarning && flashwarning.length>0) { 
     new Noty({

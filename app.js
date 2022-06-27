@@ -90,13 +90,26 @@ io.on('connection', (socket) => {
         })
     });
 
-    socket.on('move', ({username,num})=>{
+    socket.on('move', ({username,num,roomid})=>{
+        socket.in(roomid).emit('other-turn',{username,num});
+        let v=rooms.get(roomid).move;
+        v++;
+        rooms.get(roomid).move=v % rooms.get(roomid).userList.length;
+        setTimeout(()=>{
+            io.in(roomid).emit('turn',{
+                usr: rooms.get(roomid).userList[rooms.get(roomid).move]
+            });
+        },500)
         
     });
 
     socket.on('win',({username,roomid})=>{
         io.in(roomid).emit('finish',username);
     });
+
+    socket.on('send',({username,message,roomid})=>{
+        socket.in(roomid).emit('receive',{username,message});
+    })
 
 
 
