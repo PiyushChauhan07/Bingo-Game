@@ -86,25 +86,25 @@
           <td class="box" id="14" onclick="myMove('14')" >10</td>
         </tr>
         <tr>
-          <td class="box" id="20" onclick="myMove('20')" >1</td>
-          <td class="box" id="21" onclick="myMove('21')" >2</td>
-          <td class="box" id="22" onclick="myMove('22')" >1</td>
-          <td class="box" id="23" onclick="myMove('23')" >2</td>
-          <td class="box" id="24" onclick="myMove('24')" >1</td>
+          <td class="box" id="20" onclick="myMove('20')" >11</td>
+          <td class="box" id="21" onclick="myMove('21')" >12</td>
+          <td class="box" id="22" onclick="myMove('22')" >13</td>
+          <td class="box" id="23" onclick="myMove('23')" >14</td>
+          <td class="box" id="24" onclick="myMove('24')" >15</td>
         </tr>
         <tr>
-          <td class="box" id="30" onclick="myMove('30')" >1</td>
-          <td class="box" id="31" onclick="myMove('31')" >2</td>
-          <td class="box" id="32" onclick="myMove('32')" >1</td>
-          <td class="box" id="33" onclick="myMove('33')" >2</td>
-          <td class="box" id="34" onclick="myMove('34')" >1</td>
+          <td class="box" id="30" onclick="myMove('30')" >16</td>
+          <td class="box" id="31" onclick="myMove('31')" >17</td>
+          <td class="box" id="32" onclick="myMove('32')" >18</td>
+          <td class="box" id="33" onclick="myMove('33')" >19</td>
+          <td class="box" id="34" onclick="myMove('34')" >20</td>
         </tr>
         <tr>
-          <td class="box" id="40" onclick="myMove('40')" >1</td>
-          <td class="box" id="41" onclick="myMove('41')" >2</td>
-          <td class="box" id="42" onclick="myMove('42')" >1</td>
-          <td class="box" id="43" onclick="myMove('43')" >2</td>
-          <td class="box" id="44" onclick="myMove('44')" >1</td>
+          <td class="box" id="40" onclick="myMove('40')" >21</td>
+          <td class="box" id="41" onclick="myMove('41')" >22</td>
+          <td class="box" id="42" onclick="myMove('42')" >23</td>
+          <td class="box" id="43" onclick="myMove('43')" >24</td>
+          <td class="box" id="44" onclick="myMove('44')" >25</td>
         </tr>
       </table>
     </div>
@@ -172,6 +172,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous"></script>
   <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/confetti.js"></script>
   <script>
 
     window.onload=function(){
@@ -353,6 +354,23 @@ createBoard();
       updateHistory(num);
       // Play the move ( cut the number )
       mapBingo.delete(num);
+
+      const startit = () => {
+        setTimeout(function () {
+          console.log("start");
+          confetti.start();
+        }, 1000);
+      };
+
+      const stopit = () => {
+        setTimeout(function () {
+          console.log("stop");
+          confetti.stop();
+        }, 6000);
+      };
+
+      startit();
+      stopit();
 
       //assign -1 value in 2D array
 
