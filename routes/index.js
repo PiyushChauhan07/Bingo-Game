@@ -3,7 +3,7 @@ const Router=express.Router();
 const { checkAuth }=require('../config/middleware');
 const { homePage }=require('../controllers/user')
 
-Router.get('/', checkAuth ,homePage);
+Router.get('/' ,homePage);
 
 // Routes for authentications
 Router.use('/auth',require('./auth'));

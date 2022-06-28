@@ -123,8 +123,13 @@
           <input class="choose-part" type="radio" id="participants5" name="numpi" value="5">
           <label for="participants5">5</label><br>
 
+<<<<<<< Updated upstream
           <h4 style="display: inline;"> <br>Public : <br></h4>
           <label class="switch">
+=======
+          <h4 style="display: none;" > <br>Bots : <br></h4>
+          <label class="switch" style="display: none;">
+>>>>>>> Stashed changes
             <input type="checkbox" name="botallowed" checked>
             <span class="slider round"></span>
           </label><br><br>
@@ -270,7 +275,10 @@
 
     document.getElementById('joinRoom').addEventListener('click',()=>{
       var roomid=document.getElementById('roomid').value;
-      const url = window.location.href;
+      let url = window.location.href;
+      if(url.charAt(url.length-1)=='/'){
+        url=url.substring(0,url.length-1);
+      }
       window.location.href=`${url}/room/${roomid}/joined`;
       // http://localhost:5000/room/:roomid/joined
     });

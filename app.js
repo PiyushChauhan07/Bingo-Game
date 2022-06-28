@@ -47,11 +47,21 @@ var rooms = new Map([
     }]
 ]);
 
+var connectedId= new Map([
+    [11232,{
+        roomid: 1234,
+        username: 'hello'
+    }]
+]);
+
 // Socket events
 io.on('connection', (socket) => {
 
     socket.on('join-room', ({ roomid, username }) => {
-        console.log(`New user: ${username} has joined ${roomid}`);
+        connectedId.set(socket.id,{
+            roomid: roomid,
+            username: username
+        });
         socket.join(roomid);
         socket.room = roomid;
         socket.nickname = username;
@@ -72,15 +82,10 @@ io.on('connection', (socket) => {
         }
         if(!found)
         rooms.get(roomid).userList.push(username);
-
-        console.log(rooms.get(roomid));
         io.in(roomid).emit('user-list',rooms.get(roomid).userList);
     });
 
-    // For Chat Messages
-    socket.on('send',({message,roomid,username})=>{
-        socket.in(roomid).emit('receive',{ data:message ,user: username  })
-    });
+    
 
     // Game Starting
     socket.on('start',({roomid,username})=>{
@@ -107,10 +112,18 @@ io.on('connection', (socket) => {
         io.in(roomid).emit('finish',username);
     });
 
+    // For Chat Messages
     socket.on('send',({username,message,roomid})=>{
         socket.in(roomid).emit('receive',{username,message});
     })
-
+    
+    socket.on('disconnect',()=>{
+        const { roomid, username }= connectedId.get(socket.id);
+        let index=rooms.get(roomid).userList.indexOf(username);
+        rooms.get(roomid).userList.splice(index,1);
+        Rooms.findOneAndUpdate({roomid:roomid},{$pull : {playersPresent: username} }).exec();
+        io.in(roomid).emit('user-list',rooms.get(roomid).userList);
+    })
 
 
 

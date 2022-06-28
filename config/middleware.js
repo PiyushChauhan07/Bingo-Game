@@ -18,15 +18,7 @@ module.exports.checkAuth=async (req,res,next)=>{
         
     }
    
-    req.flash('warning','Please register yourself');
-        return res.render('index',{
-            username: 'NA',
-            name: 'NA',
-            matches: {
-                played: 0,
-                won: 0,
-                lost: 0
-            }
-        });
+    return res.redirect('/');
+    
 }
 
