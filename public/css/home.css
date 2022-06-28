@@ -86,7 +86,6 @@ table{
 
 .bingo-word{
     font-size: 3rem;
-    
 }
 
 .child{
@@ -103,24 +102,23 @@ float: left;
     /* border: 1px solid black; */
 }
 
-.meter-B{
+.height{
     height:20%;
+}
+
+.meter-B{
     background-color:#ff0000;
 }
 .meter-I{
-    height:20%;
     background-color: #e60000;
 }
 .meter-N{
-    height:20%;
     background-color: #cc0000;
 }
 .meter-G{
-    height:20%;
     background-color: #b30000;
 }
 .meter-O{
-    height:20%;
     background-color: #990000;
 }
 
@@ -226,4 +224,14 @@ float: left;
     outline: none;
     border: none;
     border-bottom: 1px solid white;
+  }
+
+  .left {
+    float: left;
+    clear: both;
+  }
+
+  .right {
+    float: right;
+    clear: both;
   }

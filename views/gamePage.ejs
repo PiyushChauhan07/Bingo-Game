@@ -113,13 +113,12 @@
         <p>B<br>I<br>N<br>G<br>O</p>
       </div>
       <div class="child bar">
-        <div class="common-meter meter-B"></div>
-        <div class="common-meter meter-I"></div>
-        <div class="common-meter meter-N"></div>
-        <div class="common-meter meter-G"></div>
-        <div class="common-meter meter-O"></div>
+        <div class="common-meter height"></div>
+        <div class="common-meter height"></div>
+        <div class="common-meter height"></div>
+        <div class="common-meter height"></div>
+        <div class="common-meter height"></div>
       </div>
-
     </div>
   </div>
 
@@ -159,6 +158,7 @@
     </div>
     <hr style="border-top:1px solid white;">
     <div id="message-box">
+      <div class="message-user chat-message">Hello</div>
       <p>Helo</p>
     </div>
     <div id="send-box" style=" bottom: 0; margin-top: 30px; position: fixed;">
@@ -303,6 +303,7 @@ createBoard();
           if(userArrayBingo[i][j]==-1)c++;
         }
         if(c==5)countCuts++;
+        updateProgressBar(countCuts);
       }
 
 
@@ -313,6 +314,7 @@ createBoard();
           if(userArrayBingo[i][j]==-1)c++;
         }
         if(c==5)countCuts++;
+        updateProgressBar(countCuts);
       }
 
       // Both diagnols check
@@ -320,11 +322,14 @@ createBoard();
       //diagonal-1
       if(userArrayBingo[0][0]==-1 && userArrayBingo[1][1]==-1 && userArrayBingo[2][2]==-1 && userArrayBingo[3][3]==-1 && userArrayBingo[4][4]==-1)
         countCuts++;
+      updateProgressBar(countCuts);
+
       //diagonal-2
       if(userArrayBingo[0][4]==-1 && userArrayBingo[1][3]==-1 && userArrayBingo[2][2]==-1 && userArrayBingo[3][1]==-1 && userArrayBingo[4][0]==-1)
         countCuts++;
-      
-        // if(userWon) socket.emit('win',{username,roomid});
+      updateProgressBar(countCuts);
+
+      // if(userWon) socket.emit('win',{username,roomid});
         if(countCuts==5)return true;
         return false;
     }
@@ -487,6 +492,22 @@ createBoard();
       document.getElementById('chat-box').value=''
     })
 
+    function append(user, data, position) {
+      const messageElement = document.createElement('div');
+      const messageElement1 = document.createElement('div');
+      messageElement.innerHTML = user;
+      messageElement.classList.add("message-user");
+      messageElement.classList.add(position);
+      messageElement1.innerHTML = data;
+      messageElement1.classList.add("chat-message");
+      messageElement1.classList.add(position);
+      document.getElementById('message-box').append(messageElement);
+      document.getElementById('message-box').append(messageElement1);
+      var messageBody = document.querySelector('#message-box');
+      messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+
+    }
+
     socket.on('receive',({username,message})=>{
       alert(username+"  "+message);
     })
@@ -541,6 +562,7 @@ createBoard();
         timeout: 1500
       }).show();
     } 
+
     var flasherror='<%= flash.error %>';
          if(flasherror && flasherror.length>0) { 
          new Noty({
@@ -552,6 +574,42 @@ createBoard();
             }).show();
          }
 
+    // <div class="col col-lg-4 col-md-6 col-sm-6 bingo-word">
+    //   <div class="child" style="font-family: 'Kaushan Script', cursive;">
+    //     <p>B<br>I<br>N<br>G<br>O</p>
+    //   </div>
+    //   <div class="child bar">
+    //     <div class="common-meter meter-B"></div>
+    //     <div class="common-meter meter-I"></div>
+    //     <div class="common-meter meter-N"></div>
+    //     <div class="common-meter meter-G"></div>
+    //     <div class="common-meter meter-O"></div>
+    //   </div>
+    // </div>
+
+    // 1 2 3 4 5
+    function updateProgressBar(cnt){
+      switch(cnt){
+        case 1:
+          document.querySelectorAll(".common-meter")[4].classList.add("meter-B");
+        break;
+        case 2:
+          document.querySelectorAll(".common-meter")[3].classList.add("meter-I");
+        break;
+        case 3:
+          document.querySelectorAll(".common-meter")[2].classList.add("meter-N");
+        break;
+        case 4:
+          document.querySelectorAll(".common-meter")[1].classList.add("meter-G");
+        break;
+        case 5:
+          document.querySelectorAll(".common-meter")[0].classList.add("meter-O");
+        break;
+
+        default :
+        console.log("Error in detection count");
+      }
+    }
   </script>
 
 
