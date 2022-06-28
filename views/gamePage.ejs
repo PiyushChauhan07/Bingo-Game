@@ -34,9 +34,12 @@
 </head>
 
 <body>
+  
+  <audio src="/music/sound.mp3" id="my_audio" loop="true"  autoplay></audio>
 
   <div class="header">
     <div class="vol">
+      
       <img id="volume-button" src="/images/speaker.png" onclick="changeImage()">
       <!-- <div class="speech-bubble">
         <h1 style="font-size: 2rem;">6</h1>
@@ -170,6 +173,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script>
+
+    window.onload=function(){
+      var musicplay = function(){
+        console.log("pepso chutiya");
+        document.getElementById("my_audio").play();
+        document.removeEventListener("click",musicplay);
+      }
+      document.addEventListener("click",musicplay)
+      document.body.click();
+    }
+
     //<----------------------|  Varibales |--------------------------------------->
     const roomid = "<%= roomid %>";
     const username = "<%= username %>";
@@ -489,14 +503,17 @@ createBoard();
 
 
     // For Changing Image
+
     var sound = true;
     function changeImage() {
       if (sound) {
         sound = false;
+        document.getElementById("my_audio").pause();
         document.getElementById("volume-button").src = "/images/mutes.png";
       }
       else {
         sound = true;
+        document.getElementById("my_audio").play();
         document.getElementById("volume-button").src = "/images/speaker.png";
       }
     }
