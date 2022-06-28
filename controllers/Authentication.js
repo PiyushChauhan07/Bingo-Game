@@ -46,7 +46,7 @@ module.exports.post_signin = async (req, res) => {
 
 // Getting Register Page
 module.exports.get_signup = (req, res) => {
-    return res.render('Signup');
+    return res.render('signup');
 }
 
 // Registering the user
