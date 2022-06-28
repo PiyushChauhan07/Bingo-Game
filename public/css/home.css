@@ -253,7 +253,6 @@ float: left;
     clear: both;
   }
 
-<<<<<<< Updated upstream
   .roomId-container{
     padding:5px;
     position: absolute;
@@ -304,11 +303,10 @@ float: left;
   
   .show.toast {
     transform: translate(50%, 0);
-=======
+  }
   .cut{
     background-color: rgb(255, 100, 100);
     backdrop-filter: blur(10px);
     filter: blur(4px);
     transition: 0.5s ease;
->>>>>>> Stashed changes
   }
