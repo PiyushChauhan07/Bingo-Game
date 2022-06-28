@@ -155,17 +155,30 @@ float: left;
 }
 .rules-button-div{
     height:50px;
+    display: flex;
+    flex-direction: column;
 }
 
 .rules-button{
     /* margin-top: -0.8%; */
     margin-left: 3%;
+    width:100px;
 }
 
 #win{
     visibility: hidden;
 }
 
+#exit-btn{
+    margin-left: 3%;
+    margin-top: 2%;;
+    width:100px;
+    
+}
+#exit-tag{
+    text-decoration: none;
+    color:white
+}
 .message{
     height: 100vh;
     /* 100% Full-height */
@@ -238,4 +251,56 @@ float: left;
   .right {
     float: right;
     clear: both;
+  }
+
+  .roomId-container{
+    padding:5px;
+    position: absolute;
+    top:35%;
+  }
+
+  .roomId-container input {
+    width: 80%;
+    height:30px;
+    margin-left: 18px;
+    border-radius: 3px;
+    padding: 10px 15px;
+    font-size: 20px;
+    /* border: 2px dashed rgb(110, 110, 255); */
+    border-radius: 6px;
+    background: #64d8ed;
+    color: #607d8b;
+  }
+  #roomId{
+    cursor: -webkit-grab; 
+    cursor: grab;
+    text-align: center;
+    font-weight: 900;
+  }
+  #copyURLBtn{
+    cursor:pointer;
+  }
+
+  .exit-button-div{
+    position:absolute;
+    bottom:10%;
+  }
+
+  .toast {
+    position: absolute;
+    bottom: 10px;
+    right: 55%;
+    transform: translate(50%, 60px);
+    padding: 10px 20px;
+    background: rgb(167, 153, 220);
+    color: black;
+    border-radius: 5px;
+    font-size: 18px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: transform ease-in-out 0.2s;
+  }
+  
+  .show.toast {
+    transform: translate(50%, 0);
   }

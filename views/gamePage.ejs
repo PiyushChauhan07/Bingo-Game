@@ -127,7 +127,11 @@
     <button type="button" class="rules-button btn btn-dark" data-toggle="modal" data-target="#Rules-modal">
       <span style="font-family: 'Raleway', sans-serif;">Peek Rules</span>
     </button>
+    <button type="button" class="btn btn-danger" id="exit-btn"><a id="exit-tag" href="/"><span style="font-family: 'Raleway', sans-serif;">Quit</span></a></button>
   </div>
+
+  <div class="toast">Sample message</div>
+  
 
   <!-- Modal -->
   <div class="modal fade" id="Rules-modal" tabindex="-1" role="dialog" aria-labelledby="Rules-modalCenterTitle"
@@ -182,6 +186,12 @@
     <div id="timeline">
       <ul id="joined-user">
       </ul>
+
+      <div class="roomId-container">
+        <input type="text" id="roomId" value="<%=roomid%>" readonly>
+        <img src="/images/copy-icon.svg" id="copyURLBtn" alt="copy to clipboard icon">
+      </div>
+
     </div>
     <hr style="border-top:1px solid white;">
     <div id="message-box">
@@ -440,7 +450,26 @@ createBoard();
       }
     }
 
-    //
+    //copy roomId function
+    const copyURLBtn = document.querySelector("#copyURLBtn");
+
+    copyURLBtn.addEventListener("click", () => {
+      roomId.select();
+      document.execCommand("copy");
+      showToast("Copied to clipboard");
+    });
+
+    // the toast function
+    const toast = document.querySelector(".toast");
+    let toastTimer;
+    const showToast = (msg) => {
+      clearTimeout(toastTimer);
+      toast.innerText = msg;
+      toast.classList.add("show");
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2000);
+    };
 
 
 
