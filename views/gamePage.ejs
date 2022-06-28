@@ -150,6 +150,33 @@
     </div>
   </div>
 
+  <!-- Win trigger modal -->
+  <div class="rules-button-div">
+    <button type="button" id="win" class="rules-button btn btn-dark" data-toggle="modal" data-target="#win-modal">
+      <span style="font-family: 'Raleway', sans-serif;">User Won</span>
+    </button>
+  </div>
+
+  <!-- Win Modal -->
+  <div class="modal fade" id="win-modal" tabindex="-1" role="dialog" aria-labelledby="Rules-modalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="Rules-modalLongTitle">YOU WON</h5>
+        </div>
+        <div class="modal-body">
+          <p> YOU WON</p>
+        </div>
+        <div class="modal-footer">
+          <a href="/">
+            <button type="button" class="btn btn-secondary">Return to main menu</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <div id="chatbox" class="message">
     <div id="timeline">
@@ -450,6 +477,7 @@ createBoard();
         userShow.innerHTML="";
         for(var u=0;u<userList.length;u++){
           const li=document.createElement('li');
+          // const btn=document.createElement('button');
           li.innerText=userList[u];
           joinedlist.append(li);
           if(userList[u]!==username){

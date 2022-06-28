@@ -162,6 +162,10 @@ float: left;
     margin-left: 3%;
 }
 
+#win{
+    visibility: hidden;
+}
+
 .message{
     height: 100vh;
     /* 100% Full-height */
