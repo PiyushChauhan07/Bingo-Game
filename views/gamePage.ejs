@@ -334,6 +334,15 @@ createBoard();
         return false;
     }
 
+      //cut move change box color
+
+      function cutMyMove(i,j){
+        var x=i.toString()+j.toString();
+        console.log(x);
+        document.getElementById(x).style.backgroundColor="red";
+      }
+
+
     // Function for playing Move
     function playMove(num){
 
@@ -353,7 +362,7 @@ createBoard();
         for(let j=0;j<5;j++){
           if(userBingo[i][j]==num){
             userBingo[i][j]=-1;
-            // cutMyMove(i,j)
+            cutMyMove(i,j);
             break;
           }
         }
