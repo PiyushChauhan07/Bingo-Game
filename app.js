@@ -120,12 +120,14 @@ io.on('connection', (socket) => {
 
     socket.on('updateResult', ({ username, roomid }) => {
         // console.log(roomid+" "+username);
-        Users.find({ username: username })
+        Users.findOne({ username: username })
             .then((user, err) => {
                 if (err) {
                     console.log(err);
                 }
                 else {
+                    console.log(user);
+                    if(user){
                     user.matches.played++;
                     var found = false;
                     for (var i = 0; i < rooms.get(roomid).winner.length; i++) {
@@ -133,14 +135,15 @@ io.on('connection', (socket) => {
                             found = true;
                         }
                     }
-                    if (found) {
-                        user.won++;
+                    if (found){
+                        user.matches.won++;
                     }
-                    else {
-                        user.lost++;
+                    else{
+                        user.matches.lost++;
                     }
                     console.log(user);
                     user.save();
+                    }
                 }
             })
             .catch(err =>{
