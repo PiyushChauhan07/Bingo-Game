@@ -380,7 +380,7 @@
       updateProgressBar(countCuts);
 
       // if(userWon) socket.emit('win',{username,roomid});
-      if (countCuts == 1) {
+      if (countCuts == 5) {
         startit();
         stopit();
         socket.emit('win',({username,roomid}));
