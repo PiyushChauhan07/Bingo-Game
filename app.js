@@ -7,6 +7,7 @@ dotenv.config();
 const http = require('http');
 const socketIO = require('socket.io');
 const Rooms = require('./models/room');
+const Users = require('./models/user');
 const app = express();
 
 const server = http.createServer(app);
@@ -44,11 +45,12 @@ var rooms = new Map([
         userList: [],
         playing: false,
         move: 0,
+        winner: []
     }]
 ]);
 
-var connectedId= new Map([
-    [11232,{
+var connectedId = new Map([
+    [11232, {
         roomid: 1234,
         username: 'hello'
     }]
@@ -58,7 +60,7 @@ var connectedId= new Map([
 io.on('connection', (socket) => {
 
     socket.on('join-room', ({ roomid, username }) => {
-        connectedId.set(socket.id,{
+        connectedId.set(socket.id, {
             roomid: roomid,
             username: username
         });
@@ -71,58 +73,92 @@ io.on('connection', (socket) => {
                 userList: [],
                 playing: false,
                 move: 0,
+                winner: []
             })
         }
-        var found=false;
-        for( var i=0;i<rooms.get(roomid).userList.length;i++){
-            if(rooms.get(roomid).userList[i]===username){
-                found=true;
+        var found = false;
+        for (var i = 0; i < rooms.get(roomid).userList.length; i++) {
+            if (rooms.get(roomid).userList[i] === username) {
+                found = true;
                 break;
             }
         }
-        if(!found)
-        rooms.get(roomid).userList.push(username);
-        io.in(roomid).emit('user-list',rooms.get(roomid).userList);
+        if (!found)
+            rooms.get(roomid).userList.push(username);
+        io.in(roomid).emit('user-list', rooms.get(roomid).userList);
     });
 
-    
+
 
     // Game Starting
-    socket.on('start',({roomid,username})=>{
-        socket.in(roomid).emit('started',username);
-        io.in(roomid).emit('turn',{
+    socket.on('start', ({ roomid, username }) => {
+        socket.in(roomid).emit('started', username);
+        io.in(roomid).emit('turn', {
             usr: rooms.get(roomid).userList[rooms.get(roomid).move]
         })
     });
 
-    socket.on('move', ({username,num,roomid})=>{
-        socket.in(roomid).emit('other-turn',{username,num});
-        let v=rooms.get(roomid).move;
+    socket.on('move', ({ username, num, roomid }) => {
+        socket.in(roomid).emit('other-turn', { username, num });
+        let v = rooms.get(roomid).move;
         v++;
-        rooms.get(roomid).move=v % rooms.get(roomid).userList.length;
-        setTimeout(()=>{
-            io.in(roomid).emit('turn',{
+        rooms.get(roomid).move = v % rooms.get(roomid).userList.length;
+        setTimeout(() => {
+            io.in(roomid).emit('turn', {
                 usr: rooms.get(roomid).userList[rooms.get(roomid).move]
             });
-        },500)
-        
+        }, 500)
+
     });
 
-    socket.on('win',({username,roomid})=>{
-        io.in(roomid).emit('finish',username);
+    socket.on('win', ({ username, roomid }) => {
+        // console.log(username+" "+roomid);
+        rooms.get(roomid).winner.push(username);
+        io.in(roomid).emit('finish', username);
+
     });
+
+    socket.on('updateResult', ({ username, roomid }) => {
+        // console.log(roomid+" "+username);
+        Users.find({ username: username })
+            .then((user, err) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    user.matches.played++;
+                    var found = false;
+                    for (var i = 0; i < rooms.get(roomid).winner.length; i++) {
+                        if (rooms.get(roomid).winner[i] === username) {
+                            found = true;
+                        }
+                    }
+                    if (found) {
+                        user.won++;
+                    }
+                    else {
+                        user.lost++;
+                    }
+                    console.log(user);
+                    user.save();
+                }
+            })
+            .catch(err =>{
+                console.log(err);
+            })
+    })
 
     // For Chat Messages
-    socket.on('send',({username,message,roomid})=>{
-        socket.in(roomid).emit('receive',{username,message});
+    socket.on('send', ({ username, message, roomid }) => {
+        socket.in(roomid).emit('receive', { username, message });
     })
-    
-    socket.on('disconnect',()=>{
-        const { roomid, username }= connectedId.get(socket.id);
-        let index=rooms.get(roomid).userList.indexOf(username);
-        rooms.get(roomid).userList.splice(index,1);
-        Rooms.findOneAndUpdate({roomid:roomid},{$pull : {playersPresent: username} }).exec();
-        io.in(roomid).emit('user-list',rooms.get(roomid).userList);
+
+    socket.on('disconnect', async () => {
+        const { roomid, username } = connectedId.get(socket.id);
+        let index = rooms.get(roomid).userList.indexOf(username);
+        rooms.get(roomid).userList.splice(index, 1);
+        await Rooms.findOneAndUpdate({ roomid: roomid }, { $pull: { playersPresent: username } }).exec();
+        io.in(roomid).emit('user-list', rooms.get(roomid).userList);
     })
 
 

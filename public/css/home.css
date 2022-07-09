@@ -210,7 +210,7 @@ float: left;
 
   #message-box {
     /* display: none; */
-    height: 60vh;
+    height: 50vh;
     overflow-y: auto;
   }
 

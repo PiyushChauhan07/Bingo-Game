@@ -72,8 +72,8 @@
   <section>
     <div class="container-fluid align-items-center btn-friends-section">
       <div class="container">
-        <button class="glow-on-hover btn-sm" id="play-btn" type="button"
-            style="font-family: 'Press Start 2P', cursive;">Play</button>
+        <!-- <button class="glow-on-hover btn-sm" id="play-btn" type="button"
+            style="font-family: 'Press Start 2P', cursive;">Play</button> -->
         <div class="interior">
           <button class="glow-on-hover btn btn-sm" id="create" type="button"
             style="font-family: 'Press Start 2P', cursive;">Create</button>
@@ -85,7 +85,7 @@
 
 
     <!-- Play Modal -->
-    <div id="open-modal-0" class="modal-window">
+    <!-- <div id="open-modal-0" class="modal-window">
       <div>
         <button title="Close0" id="close0" class="modal-close"><i class="fa-solid fa-xmark"></i></button>
         <h1>Choose a Room 
@@ -99,16 +99,16 @@
           </li>
         </ul>
         
-        <!-- <h3>Room 1</h3>
         <h3>Room 1</h3>
-        <h3>Room 1</h3> -->
-        <!-- <input type="text" id="roomid" required="true"> -->
-        <!-- <button id="playRoom">Join</button> -->
-        <!-- <button type="submit" class="btn btn-sm create-room-btn"
-            style="font-family: 'Love Ya Like A Sister', cursive;">Enter</button> -->
+        <h3>Room 1</h3>
+        <h3>Room 1</h3> 
+         <input type="text" id="roomid" required="true">
+        <button id="playRoom">Join</button>
+      <button type="submit" class="btn btn-sm create-room-btn"
+            style="font-family: 'Love Ya Like A Sister', cursive;">Enter</button> 
         <br>
       </div>
-    </div>
+    </div> -->
 
     <!-- create modal  -->
     <div id="open-modal-1" class="modal-window">
@@ -155,7 +155,7 @@
     <!-- <a href="/"><button type="submit" class="glow-on-hover btn btn-sm" id="logout-btn">Logout</button></a> -->
 
     <!-- Friends List-->
-    <div class="friends-container" id="frnds">
+    <!-- <div class="friends-container" id="frnds">
       <div
         style="position:sticky; top:0; color:#FFA500; background-color: #000; padding: 5px 0; font-family: 'Cinzel Decorative', cursive;">
         <h3>Friends List</h3>
@@ -174,7 +174,7 @@
       <p class="friend-name">Khullii</p>
       <p class="friend-name">Naveen</p>
       <p class="friend-name">Sahil</p>
-    </div>
+    </div> -->
 
     <!-- Requests and online friends -->
     <!-- <div class="friend-requests" id="requests">
@@ -197,34 +197,24 @@
       <p class="friend-name">Naveen</p>
       <p class="friend-name">Sahil</p>
     </div> -->
-
   </section>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous"></script>
   <script>
-    username = "<%= username %>";
+    var username = "<%= username %>";
       if (username !== "NA") {
-        // <button class="glow-on-hover btn-sm" id="play-btn" type="button"
-        //     style="font-family: 'Press Start 2P', cursive;">Play</button>
-        // <div class="interior">
-        //   <button class="glow-on-hover btn btn-sm" id="create" type="button"
-        //     style="font-family: 'Press Start 2P', cursive;">Create</button>
-        //   <button class="glow-on-hover btn btn-sm" id="join" type="button"
-        //     style="font-family: 'Press Start 2P', cursive;">Join</button>
-        // </div>
+        // document.getElementById('play-btn').addEventListener('click', () => {
+        //   const modal = document.getElementById('open-modal-0');
+        //   modal.style.visibility = 'visible';
+        //   modal.style.opacity = 1;
+        //   modal.style.pointerEvents = 'auto';
+        // })
 
-        document.getElementById('play-btn').addEventListener('click', () => {
-          const modal = document.getElementById('open-modal-0');
-          modal.style.visibility = 'visible';
-          modal.style.opacity = 1;
-          modal.style.pointerEvents = 'auto';
-        })
-
-        document.getElementById('close0').addEventListener('click', () => {
-          const modal = document.getElementById('open-modal-0');
-          modal.style.visibility = 'hidden';
-          modal.style.opacity = 0;
-          modal.style.pointerEvents = 'none';
-        })
+        // document.getElementById('close0').addEventListener('click', () => {
+        //   const modal = document.getElementById('open-modal-0');
+        //   modal.style.visibility = 'hidden';
+        //   modal.style.opacity = 0;
+        //   modal.style.pointerEvents = 'none';
+        // })
       
 
         document.getElementById('create').addEventListener('click', () => {
